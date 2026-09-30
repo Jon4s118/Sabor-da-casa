@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Sabor da Casa — comida caseira com entrega. Monte seu pedido e envie pelo WhatsApp.">
+  <title>Sabor da Casa — Cardápio</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header class="topo">
+    <span class="logo">🍅 Sabor da Casa</span>
+    <button class="carrinho-btn" id="btn-carrinho">
+      🛒 <span id="contador">0</span>
+    </button>
+  </header>
+
+  <section class="hero">
+    <h1>Comida caseira, do jeito de casa.</h1>
+    <p>Escolha seus pratos e envie o pedido direto no WhatsApp.</p>
+  </section>
+
+  <main class="container">
+
+    <!-- Categoria: Pratos -->
+    <h2 class="categoria">Pratos</h2>
+    <div class="lista">
+      <div class="item">
+        <div><h3>Feijoada completa</h3><p>Arroz, farofa e couve · serve 1</p></div>
+        <div class="item-acoes"><span class="preco">R$ 34,90</span>
+          <button class="add" data-nome="Feijoada completa" data-preco="34.90">+</button>
+        </div>
+      </div>
+      <div class="item">
+        <div><h3>Frango assado</h3><p>Batatas e polenta · serve 1</p></div>
+        <div class="item-acoes"><span class="preco">R$ 28,90</span>
+          <button class="add" data-nome="Frango assado" data-preco="28.90">+</button>
+        </div>
+      </div>
+      <div class="item">
+        <div><h3>Lasanha à bolonhesa</h3><p>Porção individual</p></div>
+        <div class="item-acoes"><span class="preco">R$ 26,90</span>
+          <button class="add" data-nome="Lasanha à bolonhesa" data-preco="26.90">+</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Categoria: Bebidas -->
+    <h2 class="categoria">Bebidas</h2>
+    <div class="lista">
+      <div class="item">
+        <div><h3>Refrigerante lata</h3><p>350 ml</p></div>
+        <div class="item-acoes"><span class="preco">R$ 5,00</span>
+          <button class="add" data-nome="Refrigerante lata" data-preco="5.00">+</button>
+        </div>
+      </div>
+      <div class="item">
+        <div><h3>Suco natural</h3><p>Laranja ou maracujá · 500 ml</p></div>
+        <div class="item-acoes"><span class="preco">R$ 9,00</span>
+          <button class="add" data-nome="Suco natural" data-preco="9.00">+</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Carrinho -->
+    <section class="carrinho" id="carrinho">
+      <h2>Seu pedido</h2>
+      <ul id="lista-pedido"></ul>
+      <p class="total">Total: <strong id="total">R$ 0,00</strong></p>
+      <a href="#" class="btn-whats" id="btn-enviar">Finalizar no WhatsApp</a>
+    </section>
+
+  </main>
+
+  <footer class="rodape">
+    <p>Sabor da Casa · Rua Exemplo, 123 — Sorriso/MT · (66) 99999-9999</p>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
