@@ -1,0 +1,71 @@
+:root {
+  --vermelho: #c0392b;
+  --vermelho-escuro: #96281b;
+  --fundo: #fff8f0;
+  --texto: #3d2c1e;
+  --card: #ffffff;
+  --raio: 12px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: "Segoe UI", Arial, sans-serif; background: var(--fundo); color: var(--texto); }
+.container { width: min(680px, 92%); margin-inline: auto; }
+
+.topo {
+  position: sticky; top: 0; z-index: 10;
+  display: flex; justify-content: space-between; align-items: center;
+  background: var(--vermelho); color: #fff; padding: 14px 5%;
+}
+.logo { font-weight: 700; font-size: 1.15rem; }
+.carrinho-btn {
+  background: #fff; color: var(--vermelho); border: none; border-radius: 999px;
+  padding: 8px 16px; font-weight: 700; cursor: pointer;
+}
+
+.hero { text-align: center; padding: 48px 5% 24px; }
+.hero h1 { font-size: clamp(1.5rem, 4vw, 2.2rem); }
+.hero p { color: #8a7a6a; margin-top: 8px; }
+
+.categoria { margin: 32px 0 14px; color: var(--vermelho); }
+.lista { display: grid; gap: 12px; }
+.item {
+  background: var(--card); border-radius: var(--raio); padding: 16px 18px;
+  display: flex; justify-content: space-between; align-items: center; gap: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,.06);
+}
+.item h3 { font-size: 1.05rem; }
+.item p { font-size: .85rem; color: #8a7a6a; }
+.item-acoes { text-align: right; flex-shrink: 0; }
+.preco { display: block; font-weight: 700; margin-bottom: 6px; }
+.add {
+  width: 30px; height: 30px; border: none; border-radius: 50%;
+  background: var(--vermelho); color: #fff; font-size: 1.1rem;
+  cursor: pointer;
+}
+.add:hover { background: var(--vermelho-escuro); }
+
+.carrinho {
+  background: var(--card); border-radius: var(--raio);
+  padding: 24px; margin: 36px 0 48px; box-shadow: 0 2px 12px rgba(0,0,0,.08);
+}
+.carrinho h2 { margin-bottom: 14px; }
+.carrinho li {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 8px 0; border-bottom: 1px solid #f0e6dc; list-style: none;
+}
+.remover { background: none; border: none; color: var(--vermelho); cursor: pointer; }
+.total { text-align: right; margin: 14px 0 18px; font-size: 1.1rem; }
+
+.btn-whats {
+  display: block; text-align: center; background: #25d366; color: #fff;
+  padding: 14px; border-radius: var(--raio); text-decoration: none;
+  font-weight: 700;
+}
+.btn-whats:hover { background: #1da851; }
+
+.rodape { background: var(--texto); color: #fff; text-align: center; padding: 20px; font-size: .85rem; }
+
+@media (max-width: 480px) {
+  .item { flex-direction: column; align-items: flex-start; }
+  .item-acoes { display: flex; align-items: center; gap: 10px; }
+}
