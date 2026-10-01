@@ -1,4 +1,4 @@
-const WHATSAPP = "5566999999999"; // troque pelo número real: 55 + DDD + número
+const WHATSAPP = "5566992171483"; // troque pelo número real: 55 + DDD + número
 
 const carrinho = [];
 
