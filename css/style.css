@@ -14,9 +14,10 @@ body { font-family: "Segoe UI", Arial, sans-serif; background: var(--fundo); col
 .topo {
   position: sticky; top: 0; z-index: 10;
   display: flex; justify-content: space-between; align-items: center;
+  gap: 12px;
   background: var(--vermelho); color: #fff; padding: 14px 5%;
 }
-.logo { font-weight: 700; font-size: 1.15rem; }
+.logo { font-weight: 700; font-size: 1.15rem; flex: 1; }
 .carrinho-btn {
   background: #fff; color: var(--vermelho); border: none; border-radius: 999px;
   padding: 8px 16px; font-weight: 700; cursor: pointer;
@@ -44,6 +45,57 @@ body { font-family: "Segoe UI", Arial, sans-serif; background: var(--fundo); col
 }
 .add:hover { background: var(--vermelho-escuro); }
 
+/* ============ MENU LATERAL ============ */
+.hamburger {
+  display: none; /* só aparece no mobile */
+  flex-direction: column; gap: 5px;
+  background: none; border: none; cursor: pointer;
+}
+.hamburger span {
+  width: 24px; height: 3px;
+  background: #fff; border-radius: 2px;
+}
+
+.menu-lateral {
+  position: fixed; top: 0; left: 0; bottom: 0;
+  width: min(280px, 80vw);
+  background: var(--vermelho-escuro); color: #fff;
+  padding: 24px; z-index: 100;
+  transform: translateX(-100%); /* escondido fora da tela */
+  transition: transform .3s ease;
+}
+.menu-lateral.aberto { transform: translateX(0); }
+.menu-lateral .fechar {
+  background: none; border: none; color: #fff;
+  font-size: 1.4rem; cursor: pointer; margin-bottom: 20px;
+}
+.menu-link {
+  display: block; color: #fff; text-decoration: none;
+  padding: 14px 8px; border-bottom: 1px solid rgba(255,255,255,.15);
+  font-weight: 600;
+}
+
+.overlay {
+  position: fixed; inset: 0; background: rgba(0,0,0,.5);
+  opacity: 0; pointer-events: none; transition: opacity .3s;
+  z-index: 90;
+}
+.overlay.ativo { opacity: 1; pointer-events: auto; }
+
+/* ============ NOVAS SEÇÕES ============ */
+.sobre { margin: 32px 0; padding: 24px; background: var(--card); border-radius: var(--raio); }
+.sobre p { margin-bottom: 10px; }
+
+.reservas { background: var(--card); border-radius: var(--raio); padding: 24px; margin: 32px 0; }
+.reservas form { display: grid; gap: 14px; margin-top: 14px; }
+.reservas label { display: grid; gap: 6px; font-size: .9rem; font-weight: 600; }
+.reservas input, .reservas select {
+  padding: 12px; border: 1px solid #ddd; border-radius: 8px; font-size: 1rem;
+}
+.reservas .btn-whats { border: none; cursor: pointer; }
+.reservas .linha { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+
+/* ============ CARRINHO ============ */
 .carrinho {
   background: var(--card); border-radius: var(--raio);
   padding: 24px; margin: 36px 0 48px; box-shadow: 0 2px 12px rgba(0,0,0,.08);
@@ -65,7 +117,13 @@ body { font-family: "Segoe UI", Arial, sans-serif; background: var(--fundo); col
 
 .rodape { background: var(--texto); color: #fff; text-align: center; padding: 20px; font-size: .85rem; }
 
+/* ============ RESPONSIVO ============ */
+@media (max-width: 768px) {
+  .hamburger { display: flex; }
+}
+
 @media (max-width: 480px) {
   .item { flex-direction: column; align-items: flex-start; }
   .item-acoes { display: flex; align-items: center; gap: 10px; }
+  .reservas .linha { grid-template-columns: 1fr; }
 }
