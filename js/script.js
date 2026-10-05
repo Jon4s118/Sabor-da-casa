@@ -1,8 +1,31 @@
-const WHATSAPP = "556692171483"; // troque pelo número real: 55 + DDD + número
+const WHATSAPP = "5566992171483";
 
 const carrinho = [];
 
-// Adiciona item ao clicar em "+"
+// ===== Menu lateral =====
+const menu = document.getElementById("menu-lateral");
+const overlay = document.getElementById("overlay");
+
+function abrirFecharMenu(abrir) {
+  menu.classList.toggle("aberto", abrir);
+  overlay.classList.toggle("ativo", abrir);
+}
+
+document.getElementById("hamburger").addEventListener("click", () => abrirFecharMenu(true));
+document.getElementById("fechar-menu").addEventListener("click", () => abrirFecharMenu(false));
+overlay.addEventListener("click", () => abrirFecharMenu(false));
+
+// Fecha o menu e rola até a seção ao clicar em um link
+document.querySelectorAll(".menu-link").forEach((link) => {
+  link.addEventListener("click", (e) => {
+    e.preventDefault();
+    abrirFecharMenu(false);
+    document.querySelector(link.getAttribute("href"))
+      .scrollIntoView({ behavior: "smooth" });
+  });
+});
+
+// ===== Carrinho =====
 document.querySelectorAll(".add").forEach((botao) => {
   botao.addEventListener("click", () => {
     carrinho.push({
@@ -46,7 +69,7 @@ function renderizar() {
   document.getElementById("contador").textContent = carrinho.length;
 }
 
-// Monta a mensagem e abre o WhatsApp
+// Envia pedido via WhatsApp
 document.getElementById("btn-enviar").addEventListener("click", (e) => {
   e.preventDefault();
   if (carrinho.length === 0) {
@@ -68,4 +91,24 @@ document.getElementById("btn-enviar").addEventListener("click", (e) => {
     `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(mensagem)}`,
     "_blank"
   );
+});
+
+// ===== Reserva via WhatsApp =====
+document.getElementById("form-reserva").addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  const nome = document.getElementById("res-nome").value.trim();
+  const pessoas = document.getElementById("res-pessoas").value;
+  const [ano, mes, dia] = document.getElementById("res-data").value.split("-");
+  const hora = document.getElementById("res-hora").value;
+
+  if (!nome) { alert("Informe seu nome."); return; }
+
+  const mensagem =
+    `Olá! Gostaria de fazer uma reserva.\n\n` +
+    `👤 ${nome}\n` +
+    `👥 ${pessoas} pessoas\n` +
+    `📅 ${dia}/${mes} às ${hora}`;
+
+  window.open(`https://wa.me/${WHATSAPP}?text=${encodeURIComponent(mensagem)}`, "_blank");
 });
