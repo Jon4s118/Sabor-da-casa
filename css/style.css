@@ -70,17 +70,18 @@ body { font-family: "Segoe UI", Arial, sans-serif; background: var(--fundo); col
   font-size: 1.4rem; cursor: pointer; margin-bottom: 20px;
 }
 .menu-link {
-  display: block; color: #fff; text-decoration: none;
-  padding: 14px 8px; border-bottom: 1px solid rgba(255,255,255,.15);
+  display: flex;                 /* alinha ícone e texto na mesma linha */
+  align-items: center;           /* centraliza verticalmente */
+  gap: 10px;                     /* espaçamento entre ícone e texto */
+  color: #fff;
+  text-decoration: none;         /* remove o sublinhado azul */
+  padding: 14px 8px;
+  border-bottom: 1px solid rgba(255,255,255,.15);
   font-weight: 600;
 }
+.menu-link:hover { background: rgba(255,255,255,.08); }
 
-.overlay {
-  position: fixed; inset: 0; background: rgba(0,0,0,.5);
-  opacity: 0; pointer-events: none; transition: opacity .3s;
-  z-index: 90;
-}
-.overlay.ativo { opacity: 1; pointer-events: auto; }
+.menu-icone { font-size: 1.2rem; width: 28px; text-align: center; }
 
 /* ============ NOVAS SEÇÕES ============ */
 .sobre { margin: 32px 0; padding: 24px; background: var(--card); border-radius: var(--raio); }
